@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_55aeaabb143d98c606755677e0c78bff {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+
+</head>
+<body>
+
+          <script>
+          #wsw{
+             background-color: yellow;
+          }
+          </script>
+
+
+          <!-- esta funcion traer las coordenadas del usuario-->
+          <a href='/localizacion'    class='btn btn-primary' onclick=finME()>ubicacion</a>
+          <div  id="mapii">   </div>
+          <!-- fin coordenadas del usuario-->
+
+          <div id="wsw">
+          <table class="table table-striped">
+          </table>
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+            <div class="folium-map" id="map_55aeaabb143d98c606755677e0c78bff" ></div>
+
+</body>
+<script>
+
+            var map_55aeaabb143d98c606755677e0c78bff = L.map(
+                "map_55aeaabb143d98c606755677e0c78bff",
+                {
+                    center: [6.1966791, -75.5625925],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 14,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+
+
+
+
+            var tile_layer_addafe8bd8bd36973242735f47305518 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_55aeaabb143d98c606755677e0c78bff);
+
+
+
+
+            var feature_group_46b3488c1943b112ae03fdd7afdaad2b = L.featureGroup(
+                {}
+            ).addTo(map_55aeaabb143d98c606755677e0c78bff);
+
+
+            var marker_6fbbd4bf879b492832bf566f56448518 = L.marker(
+                [6.1966791, -75.5625925],
+                {}
+            ).addTo(feature_group_46b3488c1943b112ae03fdd7afdaad2b);
+
+
+        var popup_9d74162267613a8640be8a14a54f32d7 = L.popup({"maxWidth": "100%"});
+
+
+            var html_0abbc33747bdc8378b3d3bd830a02cce = $(`<div id="html_0abbc33747bdc8378b3d3bd830a02cce" style="width: 100.0%; height: 100.0%;">estas aqui</div>`)[0];
+            popup_9d74162267613a8640be8a14a54f32d7.setContent(html_0abbc33747bdc8378b3d3bd830a02cce);
+
+
+        marker_6fbbd4bf879b492832bf566f56448518.bindPopup(popup_9d74162267613a8640be8a14a54f32d7)
+        ;
+
+
+
+
+            var layer_control_38f00efbfe8a05705e3e4bb5dc561235 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_addafe8bd8bd36973242735f47305518,
+                },
+                overlays :  {
+                    "presion" : feature_group_12c796169d094fd5b4fcb0c20292994d,
+                    "vientos" : feature_group_73715e2905321a177d184dc6ca202b62,
+                    "Temperatura" : feature_group_c5f4655bf7a60a22f6702036d4f35dc2,
+                    "precipitation" : feature_group_34fdabf361e19a9980a4794a1277d8b9,
+                    "lago Chinchaicocha" : feature_group_46b3488c1943b112ae03fdd7afdaad2b,
+                },
+            };
+            L.control.layers(
+                layer_control_38f00efbfe8a05705e3e4bb5dc561235.base_layers,
+                layer_control_38f00efbfe8a05705e3e4bb5dc561235.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_55aeaabb143d98c606755677e0c78bff);
+
+</script>
